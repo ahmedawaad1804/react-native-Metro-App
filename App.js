@@ -1,19 +1,27 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { createSwitchNavigator, createStackNavigator,createBottomTabNavigator } from 'react-navigation'
+/*Screens*/
+import StationScreen from './screens/StationScreen'
+import LineScreen from './screens/LineScreen'
+import MainNavigator from './screens/MainNavigator'
+import StationLocation from './screens/StationLocation'
+import NearestStationScreen from './screens/NearestStationScreen'
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
+export default class App extends React.Component {
+  render(){
+    return (
+      
+    <AppNavigator />)}
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const AppNavigator = createStackNavigator({
+    'Main':MainNavigator,
+    'Stations':StationScreen,
+    'StationLocation':StationLocation,
+    'LineScreen':LineScreen,
+    'NearestStationScreen':NearestStationScreen
+  
+
+})
+
